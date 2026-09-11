@@ -249,5 +249,3 @@ Verified under load with JMeter — 3 replicas showed ~2.4x higher throughput an
 - **NIC checksum offloading** on some Pi WiFi hardware can corrupt VXLAN-encapsulated UDP traffic (used by Flannel's default backend), breaking cross-node DNS resolution intermittently. Fixed via `ethtool -K eth0 tx off rx off`, made persistent through a systemd unit (`fix-checksum-offload.service`) since the setting doesn't survive reboots on its own.
 - **Postgres is a single point of failure** — one replica, no automatic failover. Acceptable for a personal/learning cluster; would need replication or a managed service for anything beyond that.
 - **No HTTPS/TLS at the app layer** — the app itself serves plain HTTP. External exposure should terminate TLS in front of it (Cloudflare Tunnel does this automatically).
-
----
