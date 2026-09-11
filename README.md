@@ -251,10 +251,3 @@ Verified under load with JMeter — 3 replicas showed ~2.4x higher throughput an
 - **No HTTPS/TLS at the app layer** — the app itself serves plain HTTP. External exposure should terminate TLS in front of it (Cloudflare Tunnel does this automatically).
 
 ---
-
-## Roadmap
-
-- [ ] Add Spring Boot Actuator (`/actuator/health`) with Kubernetes liveness/readiness/startup probes, so unhealthy replicas stop receiving traffic instead of timing out silently
-- [ ] Move Postgres storage onto dedicated SSD-backed storage rather than the default SD-card-backed local-path provisioner
-- [ ] Add a proper `401` `AuthenticationEntryPoint` (currently falls back to a generic `403` on auth failures)
-- [ ] TLS termination via Ingress + cert-manager, or a persistent Cloudflare Tunnel service
